@@ -16,6 +16,9 @@ import com.example.ecommerce_app.model.Banner
 import com.example.ecommerce_app.model.Item
 import com.example.ecommerce_app.views.adapter.SizeAdapter
 import com.example.ecommerce_app.views.adapter.SliderAdapter
+import com.example.ecommerce_app.views.fragment.DescriptionFragment
+import com.example.ecommerce_app.views.fragment.ReviewFragment
+import com.example.ecommerce_app.views.fragment.SoldFragment
 import com.google.android.material.slider.Slider
 
 class DatailActivity : BaseActivity() {
@@ -33,7 +36,7 @@ class DatailActivity : BaseActivity() {
         getBundle()
         banners()
         initSize()
-
+        setupViewPager()
     }
 
     private fun initSize() {
@@ -101,6 +104,30 @@ class DatailActivity : BaseActivity() {
     private fun setupViewPager(){
         val adapter: ViewPagerAdapter = ViewPagerAdapter(supportFragmentManager)
 
+        val descriptionFragment: DescriptionFragment = DescriptionFragment()
+        val reviewFragment: ReviewFragment = ReviewFragment()
+        val soldFragment: SoldFragment = SoldFragment()
+
+        //Bundle recipiente, passa dados de um fragment para o outro
+        val bundle1: Bundle = Bundle()
+        val bundle2: Bundle = Bundle()
+        val bundle3: Bundle = Bundle()
+
+        bundle1.putString("descricao", itemObject.description)
+
+        descriptionFragment.arguments = bundle1
+        reviewFragment.arguments = bundle2
+        soldFragment.arguments = bundle3
+
+
+        adapter.addFrag(descriptionFragment, "Descricao")
+        adapter.addFrag(reviewFragment, "Reviews")
+        adapter.addFrag(soldFragment, "Vendas")
+
+        binding.viewPagerProduct.adapter = adapter
+
+        //ira sincronizar as paginas
+        binding.tabLayoutProduct.setupWithViewPager(binding.viewPagerProduct)
     }
 
     private class ViewPagerAdapter(
@@ -119,7 +146,7 @@ class DatailActivity : BaseActivity() {
             return mFragmentList.get(position)
         }
 
-        private fun addFrag(fragment: Fragment, title: String){
+        fun addFrag(fragment: Fragment, title: String){
             mFragmentList.add(fragment)
             mFragmentTitleList.add(title)
         }

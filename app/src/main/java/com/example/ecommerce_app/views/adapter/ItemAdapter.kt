@@ -15,7 +15,7 @@ import com.bumptech.glide.load.resource.bitmap.CenterCrop
 import com.bumptech.glide.request.RequestOptions
 import com.example.ecommerce_app.R
 import com.example.ecommerce_app.model.Item
-import com.example.ecommerce_app.views.DatailActivity
+import com.example.ecommerce_app.views.DetailActivity
 
 class ItemAdapter(
     private val lista: List<Item>
@@ -56,7 +56,7 @@ class ItemAdapter(
 
 
             itemProduct.setOnClickListener {
-                val intent = Intent(itemView.context, DatailActivity::class.java)
+                val intent = Intent(itemView.context, DetailActivity::class.java)
                 intent.putExtra("objectItem", item)
                 itemView.context.startActivity(intent)
             }

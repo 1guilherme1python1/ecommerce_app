@@ -1,17 +1,15 @@
 package com.example.ecommerce_app.views
 
+import android.content.Intent
 import android.os.Build
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.LinearLayout
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.ecommerce_app.BaseActivity
-import com.example.ecommerce_app.R
-import com.example.ecommerce_app.databinding.ActivityDatailBinding
+import com.example.ecommerce_app.databinding.ActivityDetailBinding
 import com.example.ecommerce_app.model.Banner
 import com.example.ecommerce_app.model.Item
 import com.example.ecommerce_app.views.adapter.SizeAdapter
@@ -19,14 +17,13 @@ import com.example.ecommerce_app.views.adapter.SliderAdapter
 import com.example.ecommerce_app.views.fragment.DescriptionFragment
 import com.example.ecommerce_app.views.fragment.ReviewFragment
 import com.example.ecommerce_app.views.fragment.SoldFragment
-import com.google.android.material.slider.Slider
 
-class DatailActivity : BaseActivity() {
+class DetailActivity : BaseActivity() {
 
     private lateinit var itemObject: Item
 
     private val binding by lazy {
-        ActivityDatailBinding.inflate(layoutInflater)
+        ActivityDetailBinding .inflate(layoutInflater)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -92,6 +89,10 @@ class DatailActivity : BaseActivity() {
                 binding.imgViewDetail.offscreenPageLimit = 3
                 binding.imgViewDetail.getChildAt(0).overScrollMode = RecyclerView.OVER_SCROLL_NEVER
 
+                binding.buttonAddToCard.setOnClickListener {
+                    val intent = Intent(applicationContext, CartActivity::class.java)
+                    startActivity(intent)
+                }
 
                 binding.btnBackDetail.setOnClickListener {
                     finish()

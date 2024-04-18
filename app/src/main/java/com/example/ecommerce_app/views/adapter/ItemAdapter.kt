@@ -23,18 +23,18 @@ class ItemAdapter(
 
     inner class ItemViewHolder(
         itemView: View
-    ): ViewHolder(itemView){
+    ) : ViewHolder(itemView) {
 
         val imageProduct: ImageView = itemView.findViewById(R.id.image_product_pop)
         val ratingProduct: RatingBar = itemView.findViewById(R.id.ratingBarDetail)
         val titleProduct: TextView = itemView.findViewById(R.id.text_title_product_pop)
-        val textOldPrice : TextView = itemView.findViewById(R.id.text_old_price_product_pop)
-        val textNewPrice : TextView = itemView.findViewById(R.id.text_new_price_product_pop)
-        val numbersReview : TextView = itemView.findViewById(R.id.text_numbers_review)
+        val textOldPrice: TextView = itemView.findViewById(R.id.text_old_price_product_pop)
+        val textNewPrice: TextView = itemView.findViewById(R.id.text_new_price_product_pop)
+        val numbersReview: TextView = itemView.findViewById(R.id.text_numbers_review)
         val textRating: TextView = itemView.findViewById(R.id.text_rating_product)
         val itemProduct: ConstraintLayout = itemView.findViewById(R.id.item_list_product_list)
 
-        fun bind(item : Item){
+        fun bind(item: Item) {
 
             titleProduct.text = item.title
 

@@ -12,6 +12,7 @@ import com.example.ecommerce_app.BaseActivity
 import com.example.ecommerce_app.databinding.ActivityDetailBinding
 import com.example.ecommerce_app.model.Banner
 import com.example.ecommerce_app.model.Item
+import com.example.ecommerce_app.services.SharedPreferencesService
 import com.example.ecommerce_app.views.adapter.SizeAdapter
 import com.example.ecommerce_app.views.adapter.SliderAdapter
 import com.example.ecommerce_app.views.fragment.DescriptionFragment
@@ -89,7 +90,8 @@ class DetailActivity : BaseActivity() {
                 binding.imgViewDetail.offscreenPageLimit = 3
                 binding.imgViewDetail.getChildAt(0).overScrollMode = RecyclerView.OVER_SCROLL_NEVER
 
-                binding.buttonAddToCard.setOnClickListener {
+                binding.btnAddToCart.setOnClickListener {
+                    SharedPreferencesService.addProductsToCart(applicationContext, itemObject)
                     val intent = Intent(applicationContext, CartActivity::class.java)
                     startActivity(intent)
                 }

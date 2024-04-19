@@ -59,6 +59,8 @@ class CartAdapter(
         return listCard.count{ it.title == item.title }
     }
 
+
+
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int

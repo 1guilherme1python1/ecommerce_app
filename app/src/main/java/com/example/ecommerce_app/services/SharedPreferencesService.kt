@@ -21,13 +21,15 @@ object SharedPreferencesService {
 
             val listProductsJson = gson.toJson(listProducts)
 
-            sharedPreferences.edit().putString(KEY_PRODUCTS_IDS, listProductsJson).apply()
+            val jsonWithBrackets = "$listProductsJson"
+
+            sharedPreferences.edit().putString(KEY_PRODUCTS_IDS, jsonWithBrackets).apply()
 
             Log.i("sharedPrefProd", "Cheia $listProductsJson")
 
         } else {
             val json = gson.toJson(item)
-            sharedPreferences.edit().putString(KEY_PRODUCTS_IDS, json).apply()
+            sharedPreferences.edit().putString(KEY_PRODUCTS_IDS, "[$json]").apply()
 
             Log.i("sharedPrefProd", "Vazia $json")
         }

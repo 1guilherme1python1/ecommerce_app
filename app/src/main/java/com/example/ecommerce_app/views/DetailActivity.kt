@@ -80,7 +80,7 @@ class DetailActivity : BaseActivity() {
 
             with(itemObject) {
                 binding.textTitleDetail.text = itemObject.title
-                binding.textPriceDetail.text = "R$ " + itemObject.price.toString()
+                binding.textPriceDetail.text = String.format("R$ %.2f", itemObject.price.toFloat())
                 binding.ratingBarDetail.rating = itemObject.rating.toFloat()
                 binding.textRatingAvaliacao.text = itemObject.rating.toString() + " avaliacao"
 

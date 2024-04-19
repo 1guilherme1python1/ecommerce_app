@@ -1,5 +1,6 @@
 package com.example.ecommerce_app.views
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.View
@@ -43,7 +44,16 @@ class MainActivity : BaseActivity() {
         initBanner()
         initCategory()
         initItems()
+        initTabNavigation()
     }
+
+    private fun initTabNavigation() {
+        binding.btnViewCart.setOnClickListener {
+            val intent = Intent(this, CartActivity::class.java)
+            startActivity(intent)
+        }
+    }
+
     fun initBanner(){
         mainViewModel.listaBanner.observe(this) { lista ->
             if (lista.isNotEmpty()) {

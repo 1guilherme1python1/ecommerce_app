@@ -38,7 +38,7 @@ class ItemAdapter(
 
             titleProduct.text = item.title
 
-            textNewPrice.text = "R$ " + item.price.toString()
+            textNewPrice.text = String.format("R$ %.2f", item.price.toFloat())
             numbersReview.text = item.review.toString()
             ratingProduct.rating = item.rating.toFloat()
             textRating.text = item.rating.toString()

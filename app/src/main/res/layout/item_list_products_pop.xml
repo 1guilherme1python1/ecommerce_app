@@ -87,17 +87,16 @@
         android:id="@+id/imageView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        app:layout_constraintBottom_toBottomOf="@+id/text_new_price_product_pop"
+        app:layout_constraintBottom_toTopOf="@+id/text_title_product_pop"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_title_product_pop"
+        app:layout_constraintTop_toTopOf="@+id/text_rating_product"
         app:srcCompat="@drawable/review" />
 
     <TextView
         android:id="@+id/text_numbers_review"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="3dp"
+        android:layout_marginEnd="2dp"
         android:text="3"
         android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="@+id/imageView4"
